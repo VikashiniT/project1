@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+
+input.ng-invalid.ng-dirty{
+    border-bottom-color : #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:black;
+    padding: 10px;
+    float: left;
+}
+
+.btn-custom,.btn-custom:hover,.btn-custom:focus{
+    background-color: #36d4f0;
+    font-size: 1.1rem;
+    margin : 0px 5px;
+    border: black;
+    color:black;
+}
+
+.div1{
+    background-color : #fdf5f5;
+    border-radius: 10px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    align-content: center;
+}
+
+a.action-btn:hover{
+    cursor: pointer;
+}
+
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 45%;
+    left:40%;
+  }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    padding:70px;
+    width: 80%;
+    
+}
+
+body{
+    padding-top: 30px;
+    background-color:#cbfaf6;
+}
+
+span{
+    display: block; 
+    overflow: hidden; 
+    padding: 0px 100px 0px 10px;  
+    margin-left:200px;
+}
+
+

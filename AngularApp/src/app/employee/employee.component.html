@@ -1,0 +1,105 @@
+
+<body>
+<div class="div1">
+  <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+    
+    <div>
+      <label> <label class="red-text">*</label> Name : </label>
+      <span><input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" required></span>
+    </div>
+
+    <br>
+    <div>
+      <label> <label class="red-text">*</label> Department : </label>
+      <span><input type="text" name="dept" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.dept" required></span>
+    </div>
+
+    <br>
+    <div>
+      <label> Join Date : </label>
+      <span><input type="date" name="join_date" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.join_date"></span>
+    </div>
+
+    <br>
+    <div>
+      <label> Salary : </label>
+      <span><input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"></span>
+    </div>
+
+    <br>
+    <div>
+      <label> Gender : </label>
+      <span>
+        <input type="text" name="gender" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.gender">
+      </span>
+    </div>
+    
+    <br>
+    <div>
+      <label> Marital Status : </label>
+      <span><input type="text" name="marital_status" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.marital_status"></span>
+    </div>
+
+    <br>
+    <div>
+      <label> DOB : </label>
+      <span><input type="date" name="DOB" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.DOB" ></span>
+    </div>
+
+    <br>
+    <div>
+      <label> Nationality : </label>
+      <span><input type="text" name="nationality" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.nationality"></span>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="input-field col s12">
+        <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+        <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
+<br>
+<br>
+<div>
+  <table class="center">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Join Date</th>
+          <th>Salary</th>
+          <th>Gender</th>
+          <th>Marital Status</th>
+          <th>DOB</th>
+          <th>Nationality</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tr *ngFor="let emp of employeeService.employees">
+        <td>{{emp.name}}</td>
+        <td>{{emp.dept}}</td>
+        <td>{{emp.join_date}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.marital_status}}</td>
+        <td>{{emp.DOB}}</td>
+        <td>{{emp.nationality}}</td>
+        <td>
+          <a class="action-btn" (click)="onEdit(emp)">
+            <i class="material-icons">edit</i>
+          </a>
+          <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
+      </tr>
+    </table>
+</div>
+</body>
