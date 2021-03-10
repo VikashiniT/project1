@@ -1,0 +1,113 @@
+<html>
+
+<h1 align="center"><i>Employee List</i></h1>
+<br>
+<br>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 80px;
+  height: 40px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+<body>
+
+    <br><br>
+    <div class="wrap">
+        <div class="search">
+          <input type="textbox" class="searchTerm" placeholder="What are you looking for?" [(ngModel)] = "Gender">
+          <button type="submit" class="searchButton" (click) = "onSearchFilter()">Search</button>
+          <button style="margin:-0.2px;" type="submit" class="searchButton" (click) = "onSearchFilterClear()" >Clear</button>
+        </div>
+    </div>
+    <br><br>
+
+<div >
+  <form #employeeForm="ngForm">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+    
+      <table class="center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Join Date</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Marital Status</th>
+            <th>DOB</th>
+            <th>Nationality</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let emp of employeeService.employees | filter:SearchGender:'name'">
+          <td>{{emp.ID1}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.dept}}</td>
+          <td>{{emp.join_date}}</td>
+          <td>{{emp.salary}}</td>
+          <td>{{emp.gender}}</td>
+          <td>{{emp.marital_status}}</td>
+          <td>{{emp.DOB}}</td>
+          <td>{{emp.nationality}}</td>
+          <td>
+            <a routerLink="/update/{{emp.ID1}}" class="action-btn" (click)="onEdit(emp)">
+              <i class="material-icons">edit</i>
+            </a>
+            <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </tr>
+      
+        <br>
+        <br>
+        <a routerLink="../employee" ><button class="btn btn-custom left" type="button">Back</button></a>
+      </table>
+      
+    </form>
+    <br><br>
+  </div>
+</body>
+</html>

@@ -26,6 +26,7 @@ export class EmployeeComponent implements OnInit {
       form.reset();
     this.employeeService.selectedEmployee = {
       _id: "",
+      ID1: "",
       name:"",
       dept: "",
       join_date: "",

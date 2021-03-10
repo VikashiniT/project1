@@ -11,6 +11,7 @@ export class EmployeeService {
   selectedEmployee!: Employee;
   employees!: Employee[];
   readonly baseURL = 'http://localhost:9000/employees';
+  filter: any;
 
   constructor(public http: HttpClient) { }
 
@@ -30,4 +31,7 @@ export class EmployeeService {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
 
+  getEmployeeById(id: string):Observable<Employee>{
+    return this.http.get<Employee>(this.baseURL + `/${id}`);
+  }
 }

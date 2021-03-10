@@ -1,0 +1,103 @@
+
+<body>
+  <h1 align="center"><i>Employee Updation</i></h1>
+  <br>
+  <br>
+
+  <div class="div1">
+    <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+      
+      <br>
+      <div>
+        <label> <label class="red-text">*</label> ID : </label>
+        <span><input type="text" name="ID1" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.ID1" required></span>
+      </div>
+
+      <br>
+      <div>
+        <label> <label class="red-text">*</label> Name : </label>
+        <span><input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" required></span>
+      </div>
+
+      <br>
+      <div>
+        <label> Department : </label>
+        <span><input list="dept" name="dept" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.dept"></span>
+        <datalist id="dept">
+          <option value="Sales">
+          <option value="Billing">
+          <option value="Packaging">
+          <option value="Production">
+          <option value="Marketting">
+        </datalist>
+      </div>
+
+      <br>
+      <div>
+        <label> Join Date : </label>
+        <span><input type="date" name="join_date" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.join_date"></span>
+      </div>
+
+      <br>
+      <div>
+        <label> Salary : </label>
+        <span><input type= "text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"></span>
+      </div>
+
+      <br>
+      <div>
+        <label> Gender : </label>
+        <span><input list = "gender" name="gender" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.gender"></span>
+        <datalist id = "gender">
+          <option value = "Male">
+          <option value = "Female">
+          <option value = "Trans-gender">
+        </datalist>
+      </div>
+      
+      <br>
+      <div>
+        <label> Marital Status : </label>
+        <span><input list = "status" name="marital_status" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.marital_status"></span>
+        <datalist id = "status">
+          <option value = "Married">
+          <option value = "Un-married">
+          <option value = "Divorsed">
+        </datalist>
+      </div>
+
+      <br>
+      <div>
+        <label> DOB : </label>
+        <span><input type="date" name="DOB" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.DOB" ></span>
+      </div>
+
+      <br>
+      <div>
+        <label> Nationality : </label>
+        <span><input list = "nation" name="nationality" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.nationality"></span>
+        <datalist id = "nation">
+          <option value = "Indian">
+          <option value = "Sri Lankan">
+          <option value = "African">
+          <option value = "Others">
+        </datalist>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="input-field col s12">
+          <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Update</button>
+          <a routerLink="../../view" ><button class="btn btn-custom left" type="button">Back</button></a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <br>
+  <br>
+  <br>
+
+</body>

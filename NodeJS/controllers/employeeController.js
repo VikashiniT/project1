@@ -23,6 +23,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     const emp = new Employee({
+        ID1 : req.body.ID1,
         name : req.body.name,
         dept : req.body.dept,
         salary : req.body.salary,
@@ -43,6 +44,7 @@ router.put('/:id', (req, res) => {
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
     const emp = new Employee({
+        ID1 : req.body.ID1,
         name : req.body.name,
         dept : req.body.dept,
         salary : req.body.salary,

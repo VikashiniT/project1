@@ -2,13 +2,16 @@ const mongoose = require('mongoose')
 
 var Employee = mongoose.model('Employee', {
 
+    ID1: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
     },
     dept: {
-        type: String,
-        required: true
+        type: String
     },
     join_date: {
         type: String,
